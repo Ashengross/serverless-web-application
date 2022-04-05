@@ -68,6 +68,7 @@ jobs:
         azcliversion: 2.27.2
         # Specify the script here
         inlineScript: |
+          az login --service-principal --username f184fc81-fb9d-4973-9a5c-71ceb0cdf73d --password 37Wo1YtDwG5bASQr.k-D1IkctSuqgNSQGE --tenant 72f988bf-86f1-41af-91ab-2d7cd011db47 
           az group create -l ${{ env.AZURE_REGION }} -n ${{ env.RESOURCE_GROUP_NAME }}
           az deployment group validate -g ${{ env.APP_NAME_PREFIX }}-${{ env.ENVIRONMENT_TYPE }}-rg --template-file ./${{ env.BICEP_FILE_PATH }}/${{ env.BICEP_FILE_NAME }}.bicep
           az bicep upgrade 
